@@ -1,3 +1,4 @@
+import equal from "deep-equal"
 import {
 	DRAFT_STATE,
 	DRAFTABLE,
@@ -118,14 +119,7 @@ export function set(thing: any, propOrOldValue: PropertyKey, value: any) {
 }
 
 /*#__PURE__*/
-export function is(x: any, y: any): boolean {
-	// From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
-	if (x === y) {
-		return x !== 0 || 1 / x === 1 / y
-	} else {
-		return x !== x && y !== y
-	}
-}
+export const is = equal
 
 /*#__PURE__*/
 export function isMap(target: any): target is AnyMap {

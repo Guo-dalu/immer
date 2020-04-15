@@ -1,7 +1,7 @@
 {
-  "name": "immer",
-  "version": "6.0.0-alpha.4",
-  "description": "Create your next immutable state by mutating the current one",
+  "name": "immer-with-deep-equal",
+  "version": "1.0.0",
+  "description": "immer using deep-equal to check before setting property instead of shallow-equal",
   "main": "dist/index.js",
   "module": "dist/immer.esm.js",
   "umd:main": "dist/immer.umd.production.min.js",
@@ -37,7 +37,8 @@
     "publish-docs": "cd website && GIT_USER=mweststrate USE_SSH=true yarn run publish-gh-pages",
     "start": "cd website && yarn start",
     "test:size": "yarn build && yarn import-size --report . produce enableES5 enableMapSet enablePatches enableAllPlugins",
-    "test:sizequick": "tsdx build --name immer --format esm && yarn import-size . produce"
+    "test:sizequick": "tsdx build --name immer --format esm && yarn import-size . produce",
+    "try": "babel-node examples/a.js"
   },
   "husky": {
     "hooks": {
@@ -53,7 +54,7 @@
     "mutable",
     "copy-on-write"
   ],
-  "author": "Michel Weststrate",
+  "author": "Michel Weststrate, Guo da lu",
   "license": "MIT",
   "funding": {
     "type": "opencollective",
@@ -71,6 +72,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.9.5",
     "@types/jest": "^25.1.2",
     "coveralls": "^3.0.0",
     "cpx2": "^2.0.0",
@@ -95,5 +97,9 @@
     "typescript": "^3.7.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@types/deep-equal": "^1.0.1",
+    "deep-equal": "^2.0.2"
   }
 }
